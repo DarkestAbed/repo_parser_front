@@ -17,6 +17,7 @@ function getAllRepoData() {
                 let createdAt = document.createElement("p");
                 let updatedAt = document.createElement("p");
                 let homepage = document.createElement("p");
+                let repoURL = document.createElement("p");
                 let languages = document.createElement("p");
                 let topics = document.createElement("small");
 
@@ -25,6 +26,7 @@ function getAllRepoData() {
                 createdAt.innerHTML = `${repo.created_at}`;
                 updatedAt.innerHTML = `${repo.updated_at}`;
                 homepage.innerHTML = `${repo.homepage}`;
+                repoURL.innerHTML = `https://github.com/${repo.url}`;
                 languages.innerHTML = `${repo.language}`;
                 topics.innerHTML = `${repo.topics}`;
 
@@ -32,6 +34,7 @@ function getAllRepoData() {
                 li.appendChild(description);
                 li.appendChild(createdAt);
                 li.appendChild(updatedAt);
+                li.appendChild(repoURL);
                 if (homepage.innerHTML !== "null") {
                     li.appendChild(homepage);
                 };
@@ -64,3 +67,7 @@ btnFetch.addEventListener("click", () => {
         console.log(error);
     }
 });
+
+window.onload = function () {
+    getAllRepoData();
+};
