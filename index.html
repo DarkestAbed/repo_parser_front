@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/initialFetch.js" defer></script>
     <title>RepoParser</title>
 </head>
 
@@ -15,14 +16,18 @@
         <form id="add-repo">
             <label for="url-input">URL:</label><br>
             <input type="text" id="url-input" name="url-input">
-            <button type="button" id="add-btn" name="add-btn">Agregar repo</button>
+            <button type="button" id="add-btn">Agregar repo</button>
         </form>
     </div>
+
     <div id="lista-repos">
-        <h2>Aquí están los repos guardados:</h2>
+        <h2>Listado de repos</h2>
+        <button type="button" id="fetch-btn">Mostrar repos</button>
+        <ul id="repo-list"></ul>
     </div>
 </body>
 
 <script src="scripts/addRepo.js"></script>
+<script src="scripts/fetchRepos.js"></script>
 
 </html>

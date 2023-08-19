@@ -1,4 +1,4 @@
-const btn = document.querySelector("#add-btn");
+const btnPut = document.querySelector("#add-btn");
 const form = document.querySelector("#add-repo");
 const url = form.querySelector("#url-input");
 const textInput = document.querySelector("#url-input");
@@ -31,7 +31,7 @@ function sendData(data) {
     } else {
         const repoPath = getURL(urlValue);
         const repoReplaced = repoPath.replace("/", "&sol");
-        const urlPOST = "http://127.0.0.1:8000/put-new-repo/" + repoReplaced;
+        const urlPOST = `http://127.0.0.1:8000/put-new-repo/${repoReplaced}`;
         console.log(urlPOST);
         // Process to send XHR
         console.log("Sending data");
@@ -68,7 +68,7 @@ function reset(item) {
     item.value = "";
 }
 
-btn.addEventListener("click", () => {
+btnPut.addEventListener("click", () => {
     try {
         sendData({test: "ok"});
         reset(textInput);
