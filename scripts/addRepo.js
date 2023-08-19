@@ -24,7 +24,7 @@ function getURL(url) {
     };
 };
 
-function sendData(data) {
+async function sendData(data) {
     const urlValue = url.value
     if (urlValue === "") {
         alert("El campo está vacío");
@@ -43,9 +43,13 @@ function sendData(data) {
         });
         
         console.log("Sending data");
-        const response = fetch(request);
+        const response = await fetch(request);
         console.log(response);
-        console.log(response.ok);
+        if (!response.ok) {
+            alert(`El repo ${urlValue} no pudo ser agregado`);
+        } else {
+            alert(`Yay! El repo ${urlValue} fue agregado con éxito`);
+        }
     };
 };
 
