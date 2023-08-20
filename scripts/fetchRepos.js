@@ -27,10 +27,11 @@ function getAllRepoData() {
                 createdAt.innerHTML = `Creado: ${repo.created_at}<br>`;
                 updatedAt.innerHTML = `Último push: ${repo.pushed_at}<br>`;
                 if (repo.homepage !== null) {
-                    homepage.innerHTML = `🏠: ${repo.homepage}<br>`;
+                    homepage.innerHTML = `🏠: <a href="${repo.homepage}" target="_blank">${repo.homepage}</a><br>`;
                 };
                 if (repo.url !== null) {
-                    repoURL.innerHTML = `GitHub URL: https://github.com/${repo.url}<br>`;
+                    const urlDisplay = `https://github.com/${repo.url}`
+                    repoURL.innerHTML = `GitHub URL: <a href="${urlDisplay}" target="_blank">${urlDisplay}</a><br>`;
                 };
                 if (repo.language !== null) {
                     languages.innerHTML = `⚙️: ${repo.language}<br>`;
