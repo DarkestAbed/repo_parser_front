@@ -13,38 +13,47 @@ function getAllRepoData() {
             repos.map(function(repo) {
                 let li = document.createElement("li");
                 let name = document.createElement("h2");
-                let description = document.createElement("p");
-                let createdAt = document.createElement("p");
-                let updatedAt = document.createElement("p");
-                let homepage = document.createElement("p");
-                let repoURL = document.createElement("p");
-                let languages = document.createElement("p");
+                let description = document.createElement("li");
+                let createdAt = document.createElement("li");
+                let updatedAt = document.createElement("li");
+                let homepage = document.createElement("li");
+                let repoURL = document.createElement("li");
+                let languages = document.createElement("li");
                 let topics = document.createElement("small");
 
-                name.innerHTML = `${repo.name}`;
+                name.innerHTML = `Repo: ${repo.name}`;
                 description.innerHTML = `${repo.description}`;
-                createdAt.innerHTML = `${repo.created_at}`;
-                updatedAt.innerHTML = `${repo.updated_at}`;
-                homepage.innerHTML = `${repo.homepage}`;
-                repoURL.innerHTML = `https://github.com/${repo.url}`;
-                languages.innerHTML = `${repo.language}`;
-                topics.innerHTML = `${repo.topics}`;
+                createdAt.innerHTML = `Creado: ${repo.created_at}`;
+                updatedAt.innerHTML = `Último push: ${repo.pushed_at}`;
+                if (repo.homepage !== null) {
+                    homepage.innerHTML = `🏠: ${repo.homepage}`;
+                };
+                if (repo.url !== null) {
+                    repoURL.innerHTML = `GitHub URL: https://github.com/${repo.url}`;
+                };
+                if (repo.language !== null) {
+                    languages.innerHTML = `⚙️: ${repo.language}`;
+                };
+                if (repo.topics !== "") {
+                    topics.innerHTML = `Temas: ${repo.topics}`;
+                };
+
 
                 li.appendChild(name);
                 li.appendChild(description);
                 li.appendChild(createdAt);
                 li.appendChild(updatedAt);
                 li.appendChild(repoURL);
-                if (homepage.innerHTML !== "null") {
+                if (repo.homepage !== null) {
                     li.appendChild(homepage);
                 };
-                if (languages.innerHTML !== "null") {
+                if (repo.language !== null) {
                     li.appendChild(languages);
                 };
-                if (!topics.innerHTML !== "null") {
+                if (repo.topics !== "") {
                     li.appendChild(topics);
                 };
-                list.appendChild(li)
+                list.appendChild(li);
             });
             ul.appendChild(list);
         })
