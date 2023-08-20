@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.item {
+    height: 350px;
+    width: 400px;
+    border-style: solid;
+    padding: 1%;
+}
