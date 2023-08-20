@@ -9,9 +9,7 @@
 
 .item {
     height: 350px;
-    width: 400px;
+    width: 300px;
     border-style: solid;
     padding: 2%;
-    /* margin: 1%; */
-    /* border: 1%; */
 }

@@ -4,6 +4,7 @@ const list = document.createDocumentFragment();
 const urlGet = "http://127.0.0.1:8000/get-local-repos/";
 
 function getAllRepoData() {
+    console.log("Getting data");
     fetch(urlGet)
         .then((response) => {
         return response.json();
@@ -65,6 +66,7 @@ function getAllRepoData() {
 };
 
 function cleanUp(root) {
+    console.log("Cleaning up list");
     while(root.firstChild ){
         root.removeChild( root.firstChild );
     };
@@ -73,7 +75,7 @@ function cleanUp(root) {
 btnFetch.addEventListener("click", () => {
     try {
         cleanUp(ul);
-        getAllRepoData()
+        getAllRepoData();
     } catch (error) {
         console.log(error);
     }
